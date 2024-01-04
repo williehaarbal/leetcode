@@ -1,5 +1,6 @@
 # 03 jan 2024
 
+
 class Solution:
     def numberOfBeams(self, bank: List[str]) -> int:
         # It doesn't really matter how many "empty" grids there are in a row (and where), just how many there are on a row.
@@ -21,3 +22,18 @@ class Solution:
             prev = c
 
         return total
+
+
+# One line funny solutions (not me)
+# https://leetcode.com/problems/number-of-laser-beams-in-a-bank/solutions/4497926/one-line-solution/
+    
+# https://realpython.com/python-walrus-operator/
+# https://www.geeksforgeeks.org/python-map-function/
+    
+from itertools import pairwise
+from math import prod
+
+class Solution:
+    def numberOfBeams(self, bank: List[str]) -> int:
+        return sum(map(prod, pairwise(c for r in bank if (c:=r.count('1')))))
+    
